@@ -3,14 +3,6 @@
 #include "Font.h"
 #include "Input.h"
 
-PhysicsDemoApp::PhysicsDemoApp() {
-
-}
-
-PhysicsDemoApp::~PhysicsDemoApp() {
-
-}
-
 bool PhysicsDemoApp::startup() {
 	
 	m_2dRenderer = new aie::Renderer2D();
