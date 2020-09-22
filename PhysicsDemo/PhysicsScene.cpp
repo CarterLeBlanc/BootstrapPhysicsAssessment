@@ -169,9 +169,7 @@ bool PhysicsScene::sphereToSphere(PhysicsObject* object1, PhysicsObject* object2
 		{
 			//Resolve collision
 			glm::vec2 contact = (sphere1->getPosition() + sphere2->getPosition()) * 0.5f;
-			glm::vec2 contactButStrnger = glm::vec2(0, 0);
-			glm::vec2* b = &contactButStrnger;
-			sphere1->resolveCollision(sphere2, contact, b);
+			sphere1->resolveCollision(sphere2, contact);
 			return true;
 		}
 	}

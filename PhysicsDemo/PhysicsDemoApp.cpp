@@ -33,8 +33,17 @@ bool PhysicsDemoApp::startup()
 	setupContinuousDemo(initialPosition, initialVelocity, gravity.y);
 
 	//Create objects and print them to the screen
-	Plane* floor = new Plane(glm::vec2(0.0f, 0.0f), 5.0f);
+	Plane* floor = new Plane(glm::vec2(0.0f, 1.0f), -50.0f);
 	m_physicsScene->addActor(floor);
+
+	Plane* roof = new Plane(glm::vec2(0.0f, 1.0f), 50.0f);
+	m_physicsScene->addActor(roof);
+
+	Plane* leftWall = new Plane(glm::vec2(1.0f, 0.0f), -80.0f);
+	m_physicsScene->addActor(leftWall);
+
+	Plane* rightWall = new Plane(glm::vec2(1.0f, 0.0f), 80.0f);
+	m_physicsScene->addActor(rightWall);
 
 	return true;
 }
@@ -48,9 +57,20 @@ void PhysicsDemoApp::shutdown()
 
 void PhysicsDemoApp::update(float deltaTime) 
 {
-
 	// input example
 	aie::Input* input = aie::Input::getInstance();
+
+	//Clear the buffer
+	aie::Gizmos::clear();
+
+	//Update the scene
+	m_physicsScene->update(deltaTime);
+	m_physicsScene->updateGizmos();
+
+	if (input->wasMouseButtonPressed(0)) 
+	{
+		initializeBall();
+	}
 
 	// exit the application
 	if (input->isKeyDown(aie::INPUT_KEY_ESCAPE))
@@ -75,6 +95,17 @@ void PhysicsDemoApp::draw()
 
 	// done drawing sprites
 	m_2dRenderer->end();
+}
+
+void PhysicsDemoApp::initializeBall()
+{
+	glm::vec2 gravity = glm::vec2(0.0f, -80.0f);
+	glm::vec2 initialPosition = glm::vec2(-60.0f, 0.0f);
+	glm::vec2 finalPosition = glm::vec2(60.0f, 0.0f);
+	glm::vec2 initialVelocity = calculateVelocity(initialPosition, finalPosition, gravity.y, 5.0f);
+
+	Sphere* ball = new Sphere(initialPosition, initialVelocity, 10.0f, 5.0f, glm::vec4(0.0f, 1.0f, 0.0f, 1.0f));
+	m_physicsScene->addActor(ball);
 }
 
 void PhysicsDemoApp::setupContinuousDemo(glm::vec2 initialPosition, glm::vec2 initialVelocity, float gravity)
