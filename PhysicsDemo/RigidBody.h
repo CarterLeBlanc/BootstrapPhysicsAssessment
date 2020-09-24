@@ -13,7 +13,7 @@ public:
 
 	void applyForce(glm::vec2 force, glm::vec2 position);
 
-	void resolveCollision(RigidBody* other, glm::vec2 contact, glm::vec2* collisionNormal);
+	void resolveCollision(RigidBody* other, glm::vec2 contact, glm::vec2* collisionNormal = nullptr);
 
 	glm::vec2 getPosition() { return m_position; }
 	glm::vec2 getVelocity() { return m_velocity; }
