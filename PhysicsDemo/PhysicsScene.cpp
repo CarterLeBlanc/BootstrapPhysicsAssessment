@@ -6,6 +6,7 @@
 
 PhysicsScene::~PhysicsScene()
 {
+	//Cylce through the list of actors and delete them
 	for (auto actor : m_actors)
 	{
 		delete actor;
@@ -14,13 +15,16 @@ PhysicsScene::~PhysicsScene()
 
 void PhysicsScene::addActor(PhysicsObject* actor)
 {
+	//Add an actor to the list
 	m_actors.push_back(actor);
 }
 
 void PhysicsScene::removeActor(PhysicsObject* actor)
 {
+	//Cycle throught the list
 	for (auto i = m_actors.begin(); i < m_actors.end(); i++)
 	{
+		//Erase the actor you are looking for.
 		if (*i == actor)
 		{
 			m_actors.erase(i);
@@ -53,17 +57,10 @@ void PhysicsScene::update(float deltaTime)
 
 void PhysicsScene::updateGizmos()
 {
+	//Update each actor in the list
 	for (auto pActor : m_actors)
 	{
 		pActor->makeGizmo();
-	}
-}
-
-void PhysicsScene::debugScene()
-{
-	for (auto actor : m_actors)
-	{
-		actor->debug();
 	}
 }
 
@@ -71,7 +68,7 @@ typedef bool(*fn)(PhysicsObject*, PhysicsObject*);
 
 static fn collisionFunctions[] =
 {
-	PhysicsScene::planeToPlane, PhysicsScene::planeToSPhere,
+	PhysicsScene::planeToPlane, PhysicsScene::planeToSphere,
 	PhysicsScene::sphereToPlane, PhysicsScene::sphereToSphere
 };
 
@@ -119,7 +116,7 @@ bool PhysicsScene::planeToPlane(PhysicsObject* object1, PhysicsObject* object2)
 	return false;
 }
 
-bool PhysicsScene::planeToSPhere(PhysicsObject* object1, PhysicsObject* object2)
+bool PhysicsScene::planeToSphere(PhysicsObject* object1, PhysicsObject* object2)
 {
 	sphereToPlane(object2, object1);
 	return false;

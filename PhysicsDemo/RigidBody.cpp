@@ -20,6 +20,7 @@ void RigidBody::fixedUpdate(glm::vec2 gravity, float timeStep)
 		m_velocity = glm::vec2(0.0f, 0.0f);
 	}
 
+	//Calculate the angular drag
 	if (glm::abs(m_angularVelocity) < 0.01f) 
 	{
 		m_angularVelocity = 0.0f;

@@ -20,6 +20,7 @@ bool PhysicsDemoApp::startup()
 	//Initialize gravity
 	glm::vec2 gravity = glm::vec2(0.0f, -80.0f);
 
+	//Initialize the scene
 	m_physicsScene = new PhysicsScene();
 	m_physicsScene->setGravity(gravity);
 	m_physicsScene->setTimeStep(0.01f);
@@ -48,7 +49,6 @@ bool PhysicsDemoApp::startup()
 
 void PhysicsDemoApp::shutdown() 
 {
-
 	delete m_font;
 	delete m_2dRenderer;
 }
@@ -65,6 +65,7 @@ void PhysicsDemoApp::update(float deltaTime)
 	m_physicsScene->update(deltaTime);
 	m_physicsScene->updateGizmos();
 
+	//Call the function if the left mouse button is clicked.
 	if (input->wasMouseButtonPressed(0)) 
 	{
 		initializeBall();
@@ -97,21 +98,26 @@ void PhysicsDemoApp::draw()
 
 void PhysicsDemoApp::initializeBall()
 {
+	//Initialize variables
 	glm::vec2 gravity = glm::vec2(0.0f, -80.0f);
 	glm::vec2 initialPosition = glm::vec2(-60.0f, 0.0f);
 	glm::vec2 finalPosition = glm::vec2(60.0f, 0.0f);
 	glm::vec2 initialVelocity = calculateVelocity(initialPosition, finalPosition, gravity.y, 5.0f);
 
+	//Create a sphere and add it to the scene.
 	Sphere* ball = new Sphere(initialPosition, initialVelocity, 10.0f, 5.0f, glm::vec4(0.0f, 1.0f, 0.0f, 1.0f));
 	m_physicsScene->addActor(ball);
 }
 
 glm::vec2 PhysicsDemoApp::calculateVelocity(glm::vec2 initialPosition, glm::vec2 finalPosition, float gravity, float time)
 {
+	//Initialize velocity
 	glm::vec2 initialVelocity = glm::vec2(0.0f, 0.0f);
 
+	//Set the initial velocity.
 	initialVelocity.x = (finalPosition.x - initialPosition.x) / time;
 	initialVelocity.y = (finalPosition.y - initialPosition.y - (0.5f * gravity * (time * time)) / time);
 
+	//Return the initial velocity.
 	return initialVelocity;
 }
