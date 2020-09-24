@@ -29,8 +29,6 @@ bool PhysicsDemoApp::startup()
 	glm::vec2 finalPosition = glm::vec2(60.0f, 0.0f);
 	glm::vec2 initialVelocity = calculateVelocity(initialPosition, finalPosition, gravity.y, 5.0f);
 
-	//Simulate using kinematic formulae
-	setupContinuousDemo(initialPosition, initialVelocity, gravity.y);
 
 	//Create objects and print them to the screen
 	Plane* floor = new Plane(glm::vec2(0.0f, 1.0f), -50.0f);
@@ -106,26 +104,6 @@ void PhysicsDemoApp::initializeBall()
 
 	Sphere* ball = new Sphere(initialPosition, initialVelocity, 10.0f, 5.0f, glm::vec4(0.0f, 1.0f, 0.0f, 1.0f));
 	m_physicsScene->addActor(ball);
-}
-
-void PhysicsDemoApp::setupContinuousDemo(glm::vec2 initialPosition, glm::vec2 initialVelocity, float gravity)
-{
-	float time = 0.0f;
-	float timeStep = 0.5f;
-	float radius = 3.0f;
-	int segments = 12;
-	glm::vec4 color = glm::vec4(1.0f, 1.0f, 0.0f, 1.0f);
-	glm::vec2 finalPosition = initialPosition;
-
-	while (time <= 5.0f)
-	{
-		//Calculate the position of the projectile at the time
-		finalPosition.x = initialPosition.x + initialVelocity.x * time;
-		finalPosition.y = (initialPosition.y + initialVelocity.y * time) + (0.5f * gravity * (time * time));
-
-		aie::Gizmos::add2DCircle(finalPosition, radius, segments, color);
-		time += timeStep;
-	}
 }
 
 glm::vec2 PhysicsDemoApp::calculateVelocity(glm::vec2 initialPosition, glm::vec2 finalPosition, float gravity, float time)
