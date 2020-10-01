@@ -1,12 +1,7 @@
 var searchData=
 [
-  ['half2float_16228',['half2float',['../namespaceglm_1_1detail.html#a69b64ab4be52c9601b31588c8c813ca0',1,'glm::detail']]],
-  ['half_5fpi_16229',['half_pi',['../group__gtc__constants.html#ga0c36b41d462e45641faf7d7938948bac',1,'glm::half_pi()'],['../group__gtc__constants.html#ga0c36b41d462e45641faf7d7938948bac',1,'glm::half_pi()']]],
-  ['hash_5fcombine_16230',['hash_combine',['../namespaceglm_1_1detail.html#a391b3eb8d7f4662a1b31046bd69f2755',1,'glm::detail']]],
-  ['hasselection_16231',['HasSelection',['../struct_im_gui_text_edit_callback_data.html#ac43cc964e6c1c829db3fdb71660ff604',1,'ImGuiTextEditCallbackData::HasSelection()'],['../struct_im_gui_text_edit_state.html#a46735493114451380c2d3684b528d124',1,'ImGuiTextEditState::HasSelection()']]],
-  ['haswindowclosed_16232',['hasWindowClosed',['../classaie_1_1_application.html#a0aa89f85d53bcf82475832a556678389',1,'aie::Application']]],
-  ['hermite_16233',['hermite',['../group__gtx__spline.html#gaa69e143f6374d32f934a8edeaa50bac9',1,'glm::hermite(genType const &amp;v1, genType const &amp;t1, genType const &amp;v2, genType const &amp;t2, typename genType::value_type const &amp;s)'],['../group__gtx__spline.html#gaa69e143f6374d32f934a8edeaa50bac9',1,'glm::hermite(genType const &amp;v1, genType const &amp;t1, genType const &amp;v2, genType const &amp;t2, typename genType::value_type const &amp;s)']]],
-  ['highestbitvalue_16234',['highestBitValue',['../group__gtx__bit.html#ga0dcc8fe7c3d3ad60dea409281efa3d05',1,'glm::highestBitValue(genIUType Value)'],['../group__gtx__bit.html#ga8caa5fc60fa28f7fdd7c0768bfc79591',1,'glm::highestBitValue(vecType&lt; L, T, P &gt; const &amp;value)'],['../group__gtx__bit.html#ga0dcc8fe7c3d3ad60dea409281efa3d05',1,'glm::highestBitValue(genIUType Value)'],['../group__gtx__bit.html#ga8caa5fc60fa28f7fdd7c0768bfc79591',1,'glm::highestBitValue(vecType&lt; L, T, P &gt; const &amp;v)'],['../group__gtx__bit.html#ga0dcc8fe7c3d3ad60dea409281efa3d05',1,'ceilPowerOfTwo_advanced::highestBitValue()']]],
-  ['hsv_16235',['HSV',['../struct_im_color.html#ac8cb52119648523038818a613becf010',1,'ImColor']]],
-  ['hsvcolor_16236',['hsvColor',['../group__gtx__color__space.html#gaade1964c868332aa49e2fa3f27ea0922',1,'glm::hsvColor(vec&lt; 3, T, P &gt; const &amp;rgbValue)'],['../group__gtx__color__space.html#gaade1964c868332aa49e2fa3f27ea0922',1,'glm::hsvColor(const vec&lt; 3, T, P &gt; &amp;rgbColor)']]]
+  ['removeactor_135',['removeActor',['../class_physics_scene.html#a696fef09a3849c91e7d2c6e3fbd2e56e',1,'PhysicsScene']]],
+  ['resetposition_136',['resetPosition',['../class_physics_object.html#ae80a0c4668a1bd03b54587235e6274e0',1,'PhysicsObject']]],
+  ['resolvecollision_137',['resolveCollision',['../class_plane.html#ab7f191e3f6291e79db0fb94124e1e04e',1,'Plane::resolveCollision()'],['../class_rigid_body.html#ac4435e9e82b4d3f404c67833d27e4a9c',1,'RigidBody::resolveCollision()']]],
+  ['rigidbody_138',['RigidBody',['../class_rigid_body.html#a3e3065fe0fc171d9fad623b39fef10b4',1,'RigidBody']]]
 ];
